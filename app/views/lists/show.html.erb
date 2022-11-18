@@ -1,0 +1,16 @@
+<h1> <%= @list.name %> </h1>
+<%= link_to "Add Movie", new_list_movie_path(@list), class: 'btn btn-outline-primary mt-2' %>
+<% @list.movies.each do |m| %>
+<div class="card-trip my-4">
+  <%= image_tag m.poster_url %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= link_to m.title, list_movie_path(@list, m) %></h2>
+      <p><%= m.overview %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= m.rating %><span><i class="fa-solid fa-star"></i></span></h2>
+  </div>
+</div>
+<% end %>
+
+<%= link_to "Back to Lists of Movies List", lists_path(@lists) %>

@@ -1,0 +1,19 @@
+<div class="movie-background">
+  <%= image_tag @movie.poster_url, class: 'movie-poster' %>
+</div>
+<div class="container d-flex flex-column justify-content-center align-item-center">
+  <header class="movie-header">
+    <h1><%= @movie.title %>
+    <p><i class="fa-solid fa-star"></i> <%= @movie.rating %></p>
+  </header>
+  <p class="overview">
+    <%= @movie.overview %>
+  </p>
+  <% @movie.bookmarks.each do |bookmark| %>
+  <p class="comment"><%= bookmark.comment %></p>
+  <form action=<%= "/bookmarks/#{@list.id}/#{@movie.id}"%> method="post" class="row">
+    <input class="form-control col-3" type="text" name="comment" placeholder="Add comment...">
+    <input type="submit" class="btn btn-outline-primary">
+  </form>
+  <% end %>
+</div>

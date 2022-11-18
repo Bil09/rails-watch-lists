@@ -1,0 +1,6 @@
+<h1>Add Movie</h1>
+<%= simple_form_for [@list, @movie] do |f| %>
+  <%= f.input :title, collection: Movie::MOVIES %>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back to List", list_path(@list), class: 'link-primary' %>
