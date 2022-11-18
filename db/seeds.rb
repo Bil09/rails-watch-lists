@@ -5,7 +5,7 @@ puts(Rails.application.credentials.dig(:key))
 names.each do |n|
   inst_l << List.create(name: n)
 end
-res = RestClient.get "https://api.themoviedb.org/3/movie/top_rated?api_key=#{Rails.application.credentials[:key]}&language=en-US&page=1"
+res = RestClient.get "https://api.themoviedb.org/3/movie/top_rated?api_key=#{Rails.application.credentials.key}&language=en-US&page=1"
 movies = JSON.parse(res)
 movies = movies["results"]
 
